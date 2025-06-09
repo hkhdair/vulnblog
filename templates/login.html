@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<h1>Login</h1>
+{% if error %}
+<div class="error">{{ error }}</div>
+{% endif %}
+<form method="POST">
+    <input type="email" name="email" placeholder="Email" required>
+    <input type="password" name="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+</form>
+<p>Test accounts: user@example.com / password123 or admin@vulnblog.com / admin123</p>
+{% endblock %}

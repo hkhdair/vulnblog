@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+<h1>{{ post.title }}</h1>
+<div class="post">
+    <p>{{ post.content|safe }}</p>
+    <small>By <a href="/user/{{ post.author.id }}">{{ post.author.username }}</a> on {{ post.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+</div>
+
+<h3>Comments</h3>
+{% for comment in comments %}
+<div class="comment">
+    <p>{{ comment.content|safe }}</p>
+    <small>By {{ comment.author.username }} on {{ comment.created_at.strftime('%Y-%m-%d %H:%M') }}</small>
+</div>
+{% endfor %}
+
+{% if session.user_id %}
+<h3>Add Comment</h3>
+<form method="POST" action="/add_comment/{{ post.id }}">
+    <textarea name="content" rows="3" placeholder="Write your comment..." required></textarea>
+    <button type="submit">Post Comment</button>
+</form>
+{% endif %}
+{% endblock %}

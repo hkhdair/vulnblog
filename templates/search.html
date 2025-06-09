@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+{% block content %}
+<h1>Search Posts</h1>
+<form method="GET" action="/search">
+    <input type="text" name="q" placeholder="Search for posts..." value="{{ query }}" required>
+    <button type="submit">Search</button>
+</form>
+
+{% if query %}
+<h2>Search Results for "{{ query|safe }}"</h2>
+{% for post in posts %}
+<div class="post">
+    <h3><a href="/post/{{ post.id }}">{{ post.title|safe }}</a></h3>
+    <p>{{ post.content[:200]|safe }}...</p>
+    <small>{{ post.created_at }}</small>
+</div>
+{% else %}
+<p>No posts found.</p>
+{% endfor %}
+{% endif %}
+{% endblock %}
