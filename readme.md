@@ -4,8 +4,8 @@
 VulnBlog is a simple blog application built with Flask. This application is designed for educational purposes as part of a vulnerability assessment exercise. Students should analyze the application to identify security vulnerabilities and provide recommendations.
 
 **Created exclusively for MIT9804 - Web Development and Web Security Unit, Assessment 2**
-*Global Higher Education Institute, Adelaide, Australia.*
-*Author: Hisham Khdair*
+- *Global Higher Education Institute, Adelaide, Australia.*
+- *Author: Hisham Khdair*
 
 ## Setup Instructions
 
