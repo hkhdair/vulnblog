@@ -15,7 +15,9 @@ ENV/
 
 # Uploads and backups
 static/uploads/*
+!static/uploads/.gitkeep
 backups/*
+!backups/.gitkeep
 
 # IDE
 .vscode/
