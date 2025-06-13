@@ -3,7 +3,6 @@
 {% block content %}
 <h1>{{ user.username }}'s Profile</h1>
 <p>Email: {{ user.email }}</p>
-<p>Member since: {{ user.id }}</p>
 {% if user.is_admin %}
 <p><strong>Administrator Account</strong></p>
 {% endif %}

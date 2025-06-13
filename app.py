@@ -100,7 +100,7 @@ def login():
         password = request.form['password']
         
         query = f"SELECT * FROM user WHERE email = '{email}' AND password = '{hashlib.md5(password.encode()).hexdigest()}'"
-        result = db.session.execute(query)
+        result = db.session.execute(text(query))
         user = result.fetchone()
         
         if user:
@@ -182,9 +182,11 @@ def search():
 
 @app.route('/admin')
 def admin():
+    # VULNERABILITY: Weak authorization check
     if session.get('is_admin'):
         users = User.query.all()
-        return render_template('admin.html', users=users)
+        current_date = datetime.now().strftime('%Y%m%d')
+        return render_template('admin.html', users=users, current_date=current_date)
     else:
         return 'Access Denied', 403
 
